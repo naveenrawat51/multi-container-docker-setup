@@ -12,9 +12,10 @@ Setting up multi-container project using Docker with mongo database, node api an
 
 ### Dependencies
 
-* Docker installed
+- Docker installed
 
 ### Executing program with specifying the port
+
 branch name: 'add-dockerfile'
 
 change backend/app.js file line no. 87 to 'mongodb://host.docker.internal:27017/course-goals'. replace 'localhost' to 'host.docker.internal' to access the docker to host port database mongodb.
@@ -36,13 +37,14 @@ Docker run --name goals-frontend --rm -d -it -p 3000:3000 goals-react (run goals
 
 We are providing the post while running the containers so that we can open the same port on our host machine browser. 'host.docker.internal' is to communication between docker container and host.
 
-
 ### Executing program with docker network
+
 branch name: 'add-docker-network'
 
 change backend/app.js file line no. 87 to 'mongodb://mongodb:27017/course-goals'. replace 'localhost' to 'mongodb' to access the mongodb container internally for node api.
 
 create a docker network so that containers can communicate with each other without specifying the port
+
 ```
 Docker network create goals-net (create docker network goals-net)
 ```
