@@ -31,7 +31,7 @@ Docker run --name goals-backend --rm -d -p 80:80 goals-node (run goals-node imag
 ```
 Docker build -t goals-react  (build react app image with goals-react name)
 Docker run --name goals-frontend --rm -d -it -p 3000:3000 goals-react (run goals-react image docker container with goals-frontend name and 3000 port, --rm to remove container once stopped, -d to run in deattached mode, run with -it mode otherwise it might not work)
-``
+```
 
 
 
