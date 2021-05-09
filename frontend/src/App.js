@@ -26,7 +26,7 @@ function App() {
       } catch (err) {
         setError(
           err.message ||
-            'Fetching goals failed - the server responsed with an error.'
+          'Fetching goals failed - the server responsed with an error.'
         );
       }
       setIsLoading(false);
@@ -68,7 +68,7 @@ function App() {
     } catch (err) {
       setError(
         err.message ||
-          'Adding a goal failed - the server responsed with an error.'
+        'Adding a goal failed - the server responsed with an error.'
       );
     }
     setIsLoading(false);
@@ -95,7 +95,7 @@ function App() {
     } catch (err) {
       setError(
         err.message ||
-          'Deleting the goal failed - the server responsed with an error.'
+        'Deleting the goal failed - the server responsed with an error.'
       );
     }
     setIsLoading(false);
