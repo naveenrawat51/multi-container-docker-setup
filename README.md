@@ -33,3 +33,4 @@ Docker build -t goals-react  (build react app image with goals-react name)
 Docker run --name goals-frontend --rm -d -it -p 3000:3000 goals-react (run goals-react image docker container with goals-frontend name and 3000 port, --rm to remove container once stopped, -d to run in deattached mode, run with -it mode otherwise it might not work)
 ```
 
+We are providing the post while running the containers so that we can open the same port on our host machine browser. 'host.docker.internal' is to communication between docker container and host.
