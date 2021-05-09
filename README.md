@@ -65,3 +65,13 @@ docker run --name goals-frontend -d --rm -p 3000:3000 -it goals-react (run goals
 ```
 
 using docker network to access containers internally. we need to specify the port for api as react app runs on host it needs to access the api on host. we need to run react-app with port 3000 so that it'll br running on host
+
+### add volumes to persistent the data
+
+```
+docker run --name mongodb -v data:/data/db -d --rm --network goals-net  mongo
+```
+
+```
+docker run --name mongodb -v data:/data/db -d --rm --network goals-net -e MONGO_INITDB_ROOT_USERNAME=naveen -e MONGO_INITDB_ROOT_PASSWORD=abcd mongo  (you can add username and password as environment variable and change the mongodb connection string accordingly: mongodb://<username>:<password>@mongodb:27017/course-goals)
+```
