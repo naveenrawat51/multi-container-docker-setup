@@ -84,7 +84,8 @@ app.delete('/goals/:id', async (req, res) => {
 });
 
 mongoose.connect(
-  'mongodb://localhost:27017/course-goals',
+  'mongodb://mongodb:27017/course-goals',
+  // 'mongodb://<username>:<password>@mongodb:27017/course-goals',  need to be used while using username and password
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
