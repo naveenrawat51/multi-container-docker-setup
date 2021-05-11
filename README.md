@@ -76,17 +76,18 @@ docker run --name mongodb -v data:/data/db -d --rm --network goals-net  mongo
 docker run --name mongodb -v data:/data/db -d --rm --network goals-net -e MONGO_INITDB_ROOT_USERNAME=naveen -e MONGO_INITDB_ROOT_PASSWORD=abcd mongo  (you can add username and password as environment variable and change the mongodb connection string accordingly: mongodb://<username>:<password>@mongodb:27017/course-goals)
 ```
 
-
-
 ### add volumes bind mount for hot reloading
+
 1. install nodemon for node api(volumes with full path are bind mounts)
 2. add CHOKIDAR_USEPOLLING=true as environment variable
 
 ```
-docker run --name goals-backend -v logs:/app/logs -v C:\Users\narawat\Downloads\multi-01-starting-setup\multi-01-starting-setup\backend:/app -v 
+docker run --name goals-backend -v logs:/app/logs -v C:\Users\narawat\Downloads\multi-01-starting-setup\multi-01-starting-setup\backend:/app -v
 /app/node_modules -d --rm -p 80:80 --network goals-net goals-node
 ```
 
 ```
 docker run --name goals-frontend -d --rm -v C:\Users\narawat\Downloads\multi-01-starting-setup\multi-01-starting-setup\frontend\src:/app/src -p 3000:3000 -it -e CHOKIDAR_USEPOLLING=true goals-react
 ```
+
+Note: Running docker with 'MONGO_INITDB_ROOT_USERNAME and MONGO_INITDB_ROOT_PASSWORD' environment variable will make mongodb running with --auth mode.
