@@ -3,6 +3,7 @@ services:
   mongodb:
     image: "mongo"
     volumes: [data:/data/db]
+    container_name: mongodb
     #environment:
     # MONGO_INITDB_ROOT_USERNAME: naveen
     # - MONGO_INITDB_ROOT_USERNAME=naveen
@@ -10,6 +11,7 @@ services:
       - ./env/mongo.env
   backend:
     build: ./backend
+    image: backend-node
     # build:
     #   context: ./backend
     #   dockerfile: Dockerfile
@@ -18,13 +20,16 @@ services:
     ports:
       - "80:80"
     volumes: [logs:/app/logs, ./backend:/app, /app/node_modules]
+    container_name: backend-api
     depends_on:
       - mongodb
   frontend:
     build: ./frontend
+    image: frontend-react
     ports:
       - "3000:3000"
     volumes: [./frontend/src:/app/src]
+    container_name: frontend-app
     stdin_open: true
     tty: true
     depends_on:
